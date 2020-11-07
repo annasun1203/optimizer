@@ -25,7 +25,7 @@ def transportationOptimizer(inputFile,outputFile):
     mod.setParam('outputflag',False)
     mod.optimize()
     
-    # Write your code for creating the output file below
+    # Code for creating the output file below
     writer = pd.ExcelWriter('12-transportation-sampleOutput-1.xlsx')
     pd.DataFrame([mod.objval], columns = ['Minimumal cost']).to_excel(writer,sheet_name = 'Objective', index = False)
     df = pd.DataFrame(index = I, columns = J)
@@ -34,6 +34,20 @@ def transportationOptimizer(inputFile,outputFile):
             df.loc[i,j]=x[i,j].x
     df.to_excel(writer, sheet_name = 'Plan') # second sheet 
     writer.save()
+    
+# Code to run by command line
+if __name__ =='__main__':
+    import sys, os
+    if len(sys.argv)!=3:
+        print('Correct syntax: python transportation_optimizer.py inputFile outputFile')
+    else:
+        inputFile = sys.argv[1]
+        outputFile = sys.argv[2]
+        if os.path.exists(inputFile):
+            transportationOptimizer(inputFile, outputFile)
+            print(f'Successfully optimized. Results in "{outputFile}"')
+        else:
+            print(f'File "{inputFile}" not found!')
     
     
 
