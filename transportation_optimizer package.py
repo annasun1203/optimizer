@@ -1,18 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# ## Exercise 12.2.5 Making Reusable Software
-# 
-# Write a function called "transportationOptimizer" with two input parameters:
-# 
-# - inputFile: filename of the input file.
-# - outputFile: filename of the output file.
-# 
-# The function should be able to take in any input file of the same format as those provided for the lab, and create the corresponding output file. The code for reading inputs and optimizing is already provided. Your task is to complete the portion for outputing, following the examples in Section 4.5.4.
-
-# In[14]:
-
-
 import pandas as pd
 from gurobipy import Model, GRB
 def transportationOptimizer(inputFile,outputFile):
@@ -48,27 +36,7 @@ def transportationOptimizer(inputFile,outputFile):
     writer.save()
     
     
-    
-    
-    
 
-
-# In[15]:
-
-
-# Test code 1
-transportationOptimizer('12-transportation-input-1.xlsx','12-transportation-output-1.xlsx')
-# You should check whether the above output file matches "12-transportation-sampleOutput-1.xlsx"
-
-
-# In[16]:
-
-
-# Test code 2
-transportationOptimizer('12-transportation-input-2.xlsx','12-transportation-output-2.xlsx')
-
-
-# In[ ]:
 
 
 
